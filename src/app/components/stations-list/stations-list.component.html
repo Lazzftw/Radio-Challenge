@@ -1,0 +1,17 @@
+<ul >
+    <li *ngFor="let station of stations ;let indexOfStation=index;" (click)="onClicked(indexOfStation, station)">
+       <div class="station--list">  
+            <span > {{station.name}} FM</span>
+            <span > {{station.frequency}}</span>
+       </div> 
+       <div class="station--image" *ngIf="isClicked && indexOfStation==selectedIndex"> 
+            <fa-icon [icon]="faMinus " size="lg" (click)="onMinus(selectedIndex)"></fa-icon>
+            <img [src]="station.image">
+            <fa-icon [icon]="faPlus" size="lg" ></fa-icon>
+       </div>
+    </li>
+    <li class="station--status" *ngIf=" isClicked"  >
+       <p> Currently Playing</p>
+        <span > {{selectedStation.name}} FM</span>
+    </li>
+</ul>

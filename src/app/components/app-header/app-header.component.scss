@@ -1,0 +1,19 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #edad61;
+    padding: 10px;
+    width:300px;
+    color:white;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 6px 6px 6px black;
+  }
+
+h1    {
+    flex: 1 2 auto;
+  }
+
+fa-icon {
+  margin-top:29px;
+}
