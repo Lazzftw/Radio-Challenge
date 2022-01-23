@@ -1,4 +1,4 @@
-<ul >
+<ul>
     <li *ngFor="let station of stations ;let indexOfStation=index;" (click)="onClicked(indexOfStation, station)">
        <div class="station--list">  
             <span > {{station.name}} FM</span>
@@ -15,7 +15,7 @@
     </li>
     <li class="station--status" *ngIf=" isClicked"  >
        <p> Currently Playing</p>
-        <span class="selected-station" > {{selectedStation.name}} FM</span>
+       <span class="selected-station" > {{selectedStation.name}} FM</span>
     </li>
 </ul>
 

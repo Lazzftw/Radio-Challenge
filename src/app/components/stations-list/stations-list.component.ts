@@ -9,7 +9,7 @@ import { faPlusCircle, faMinusCircle, faVolumeUp } from '@fortawesome/free-solid
   styleUrls: ['./stations-list.component.scss']
 })
 export class StationsListComponent implements OnInit {
-
+  
   stations!: Stations[];
   isClicked : boolean = false;
   selectedIndex!: number;

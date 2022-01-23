@@ -46,8 +46,13 @@ ul{
         color: #edad61;
         line-height: 20px;
         
+        p{
+            font-size:smaller;
+            
+        }
         .selected-station{
             line-height: 0px;
+            font-size: large;
         }
     }
     
