@@ -5,13 +5,17 @@
             <span > {{station.frequency}}</span>
        </div> 
        <div class="station--image" *ngIf="isClicked && indexOfStation==selectedIndex"> 
-            <fa-icon [icon]="faMinus " size="lg" (click)="onMinus(selectedIndex)"></fa-icon>
-            <img [src]="station.image">
-            <fa-icon [icon]="faPlus" size="lg" ></fa-icon>
-       </div>
+          <fa-icon [icon]="faMinus " size="lg" (click)="onMinus()"></fa-icon>
+          <img [src]="station.image">
+          <fa-icon [icon]="faPlus" size="lg" (click)="onPlus()"></fa-icon>
+          <div *ngIf="volumeBar" class="station--volumebar">
+          <fa-icon [icon]="faVolume"></fa-icon>     
+          <mat-slider   vertical [value]="volumeValue" min="0" max="5"></mat-slider>
+     </div></div>
     </li>
     <li class="station--status" *ngIf=" isClicked"  >
        <p> Currently Playing</p>
-        <span > {{selectedStation.name}} FM</span>
+        <span class="selected-station" > {{selectedStation.name}} FM</span>
     </li>
 </ul>
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stations } from 'src/app/models/stations.module';
 import { StationsListService } from 'src/app/services/stations-list/stations-list.service';
-import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faMinusCircle, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-stations-list',
@@ -14,8 +14,14 @@ export class StationsListComponent implements OnInit {
   isClicked : boolean = false;
   selectedIndex!: number;
   selectedStation!: Stations;
-  faPlus= faPlusCircle
-  faMinus= faMinusCircle
+  faPlus= faPlusCircle;
+  faMinus= faMinusCircle;
+  faVolume= faVolumeUp;
+  volumeBar: boolean = false;
+  volumeValue: number = 2
+  mytimeout!: any;
+
+
   constructor(private api: StationsListService) { }
 
   ngOnInit(): void {
@@ -26,15 +32,26 @@ export class StationsListComponent implements OnInit {
   }
   onClicked(index : number, station : Stations){
     this.isClicked= true;
-    this.selectedIndex = index
-    this.selectedStation = station
+    this.selectedIndex = index;
+    this.selectedStation = station;
   }
 
-  onMinus(index : number){
-    
-    this.selectedIndex = 1
-    console.log(this.selectedIndex)
-    this.isClicked= true;
+  onMinus(){
+    clearTimeout(this.mytimeout);
+    this.volumeValue<=0 ? this.volumeValue =0 : this.volumeValue--
+    this.volumeBar=true
+    this.mytimeout =setTimeout(() => {
+      this.volumeBar=false
+    }, 3000);
+  }
+
+  onPlus(){
+    clearTimeout(this.mytimeout);
+    this.volumeValue>=5 ? this.volumeValue =5 : this.volumeValue++
+    this.volumeBar=true
+    this.mytimeout =setTimeout(() => {
+      this.volumeBar=false
+    }, 3000);
   }
 
 }
